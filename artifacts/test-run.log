@@ -1,0 +1,293 @@
+TAP version 13
+# Subtest: 无Key: Key 为 null → 返回明确错误态，非静默空
+ok 1 - 无Key: Key 为 null → 返回明确错误态，非静默空
+  ---
+  duration_ms: 2.909698
+  type: 'test'
+  ...
+# Subtest: 无Key: Key 为 undefined → 返回明确错误态
+ok 2 - 无Key: Key 为 undefined → 返回明确错误态
+  ---
+  duration_ms: 0.163174
+  type: 'test'
+  ...
+# Subtest: 无Key: Key 为空字符串 → 返回明确错误态
+ok 3 - 无Key: Key 为空字符串 → 返回明确错误态
+  ---
+  duration_ms: 0.100189
+  type: 'test'
+  ...
+# Subtest: 无Key: Key 为纯空白 → 返回明确错误态
+ok 4 - 无Key: Key 为纯空白 → 返回明确错误态
+  ---
+  duration_ms: 0.084627
+  type: 'test'
+  ...
+# Subtest: 有效Key: 非空字符串 → ok=true, error=null
+ok 5 - 有效Key: 非空字符串 → ok=true, error=null
+  ---
+  duration_ms: 0.143334
+  type: 'test'
+  ...
+# Subtest: 失效Key: HTTP 401 → 鉴权失败错误类型
+ok 6 - 失效Key: HTTP 401 → 鉴权失败错误类型
+  ---
+  duration_ms: 0.131987
+  type: 'test'
+  ...
+# Subtest: 失效Key: HTTP 403 → 鉴权失败错误类型
+ok 7 - 失效Key: HTTP 403 → 鉴权失败错误类型
+  ---
+  duration_ms: 0.192398
+  type: 'test'
+  ...
+# Subtest: 业务错误: body code 非0 → business 类型
+ok 8 - 业务错误: body code 非0 → business 类型
+  ---
+  duration_ms: 0.093861
+  type: 'test'
+  ...
+# Subtest: 网络错误: status undefined → network 类型
+ok 9 - 网络错误: status undefined → network 类型
+  ---
+  duration_ms: 0.192327
+  type: 'test'
+  ...
+# Subtest: 其他HTTP错误: 500 → unknown 类型
+ok 10 - 其他HTTP错误: 500 → unknown 类型
+  ---
+  duration_ms: 0.289392
+  type: 'test'
+  ...
+# Subtest: 聚合: 全 pass → 入选 (included)
+ok 11 - 聚合: 全 pass → 入选 (included)
+  ---
+  duration_ms: 11.209481
+  type: 'test'
+  ...
+# Subtest: 聚合: pass + unknown → 无法判断 (unknown)，不得入选
+ok 12 - 聚合: pass + unknown → 无法判断 (unknown)，不得入选
+  ---
+  duration_ms: 0.231876
+  type: 'test'
+  ...
+# Subtest: 聚合: fail + unknown → 排除 (excluded)，不得因unknown拉成无法判断
+ok 13 - 聚合: fail + unknown → 排除 (excluded)，不得因unknown拉成无法判断
+  ---
+  duration_ms: 0.134671
+  type: 'test'
+  ...
+# Subtest: 聚合: fail + pass + unknown → 排除 (excluded)，优先级最高
+ok 14 - 聚合: fail + pass + unknown → 排除 (excluded)，优先级最高
+  ---
+  duration_ms: 0.131737
+  type: 'test'
+  ...
+# Subtest: 聚合: 全 unknown → 无法判断 (unknown)
+ok 15 - 聚合: 全 unknown → 无法判断 (unknown)
+  ---
+  duration_ms: 0.133279
+  type: 'test'
+  ...
+# Subtest: 聚合: 零条件 → 抛错禁止筛选
+ok 16 - 聚合: 零条件 → 抛错禁止筛选
+  ---
+  duration_ms: 7.456282
+  type: 'test'
+  ...
+# Subtest: 聚合: 单条件 pass → 入选
+ok 17 - 聚合: 单条件 pass → 入选
+  ---
+  duration_ms: 0.144436
+  type: 'test'
+  ...
+# Subtest: 聚合: 单条件 fail → 排除
+ok 18 - 聚合: 单条件 fail → 排除
+  ---
+  duration_ms: 0.117325
+  type: 'test'
+  ...
+# Subtest: 聚合: 单条件 unknown → 无法判断
+ok 19 - 聚合: 单条件 unknown → 无法判断
+  ---
+  duration_ms: 0.267489
+  type: 'test'
+  ...
+# Subtest: 聚合: 计数守恒 - 批量样本三类之和等于总数
+ok 20 - 聚合: 计数守恒 - 批量样本三类之和等于总数
+  ---
+  duration_ms: 0.523402
+  type: 'test'
+  ...
+# Subtest: 快照有效: 股票池一致、字段齐全、未过期 → valid=true
+ok 21 - 快照有效: 股票池一致、字段齐全、未过期 → valid=true
+  ---
+  duration_ms: 0.961447
+  type: 'test'
+  ...
+# Subtest: 快照失效: 股票池不一致 → valid=false，给出原因
+ok 22 - 快照失效: 股票池不一致 → valid=false，给出原因
+  ---
+  duration_ms: 2.327608
+  type: 'test'
+  ...
+# Subtest: 快照失效: 超过TTL过期 → valid=false，给出原因
+ok 23 - 快照失效: 超过TTL过期 → valid=false，给出原因
+  ---
+  duration_ms: 0.161662
+  type: 'test'
+  ...
+# Subtest: 快照失效: 缺少必需字段 → valid=false，列出缺的字段
+ok 24 - 快照失效: 缺少必需字段 → valid=false，列出缺的字段
+  ---
+  duration_ms: 0.163274
+  type: 'test'
+  ...
+# Subtest: 快照失效: 财务报告期不一致 → valid=false，给出原因
+ok 25 - 快照失效: 财务报告期不一致 → valid=false，给出原因
+  ---
+  duration_ms: 2.557972
+  type: 'test'
+  ...
+# Subtest: 快照有效: 不需要财务字段时报告期不比较
+ok 26 - 快照有效: 不需要财务字段时报告期不比较
+  ---
+  duration_ms: 0.131036
+  type: 'test'
+  ...
+# Subtest: 快照失效: 条件字段变更后快照不覆盖新条件 → valid=false
+ok 27 - 快照失效: 条件字段变更后快照不覆盖新条件 → valid=false
+  ---
+  duration_ms: 0.156333
+  type: 'test'
+  ...
+# Subtest: 快照有效: TTL 边界内 → valid=true
+ok 28 - 快照有效: TTL 边界内 → valid=true
+  ---
+  duration_ms: 0.128442
+  type: 'test'
+  ...
+# Subtest: volatility20d: 0个收盘时点 → unknown
+ok 29 - volatility20d: 0个收盘时点 → unknown
+  ---
+  duration_ms: 1.165942
+  type: 'test'
+  ...
+# Subtest: volatility20d: 1个收盘时点 → unknown
+ok 30 - volatility20d: 1个收盘时点 → unknown
+  ---
+  duration_ms: 0.175612
+  type: 'test'
+  ...
+# Subtest: volatility20d: 2个收盘时点 → unknown
+ok 31 - volatility20d: 2个收盘时点 → unknown
+  ---
+  duration_ms: 0.183815
+  type: 'test'
+  ...
+# Subtest: volatility20d: 21个有效时点+对齐基准 → 可计算，值=样本std×√252×100
+ok 32 - volatility20d: 21个有效时点+对齐基准 → 可计算，值=样本std×√252×100
+  ---
+  duration_ms: 0.440629
+  type: 'test'
+  ...
+# Subtest: volatility20d: 等涨2%的21天+对齐基准 → 波动率为0
+ok 33 - volatility20d: 等涨2%的21天+对齐基准 → 波动率为0
+  ---
+  duration_ms: 0.211185
+  type: 'test'
+  ...
+# Subtest: volatility20d: 窗口内出现 null → unknown
+ok 34 - volatility20d: 窗口内出现 null → unknown
+  ---
+  duration_ms: 0.150225
+  type: 'test'
+  ...
+# Subtest: volatility20d: 窗口内出现0价 → unknown
+ok 35 - volatility20d: 窗口内出现0价 → unknown
+  ---
+  duration_ms: 0.191846
+  type: 'test'
+  ...
+# Subtest: volatility20d: 窗口内出现负价 → unknown
+ok 36 - volatility20d: 窗口内出现负价 → unknown
+  ---
+  duration_ms: 0.167039
+  type: 'test'
+  ...
+# Subtest: volatility20d: 窗口内出现 NaN/Infinity → unknown
+ok 37 - volatility20d: 窗口内出现 NaN/Infinity → unknown
+  ---
+  duration_ms: 0.300059
+  type: 'test'
+  ...
+# Subtest: volatility20d: 同一交易日同价重复 → 去重后仍可计算
+ok 38 - volatility20d: 同一交易日同价重复 → 去重后仍可计算
+  ---
+  duration_ms: 0.391425
+  type: 'test'
+  ...
+# Subtest: volatility20d: 同一交易日异价冲突 → unknown
+ok 39 - volatility20d: 同一交易日异价冲突 → unknown
+  ---
+  duration_ms: 0.19424
+  type: 'test'
+  ...
+# Subtest: volatility20d: 无基准交易日历时 不判连续 直接返回unknown + 不可验证原因
+ok 40 - volatility20d: 无基准交易日历时 不判连续 直接返回unknown + 不可验证原因
+  ---
+  duration_ms: 0.124686
+  type: 'test'
+  ...
+# Subtest: volatility20d: 基准为空数组时 同样返回不可验证
+ok 41 - volatility20d: 基准为空数组时 同样返回不可验证
+  ---
+  duration_ms: 0.105347
+  type: 'test'
+  ...
+# Subtest: volatility20d: 基准与个股交易日完全对齐 含周末/节假日大间隔也判连续
+ok 42 - volatility20d: 基准与个股交易日完全对齐 含周末/节假日大间隔也判连续
+  ---
+  duration_ms: 0.203364
+  type: 'test'
+  ...
+# Subtest: volatility20d: 基准有交易日但个股停牌缺一天 → unknown + 个股缺失原因
+ok 43 - volatility20d: 基准有交易日但个股停牌缺一天 → unknown + 个股缺失原因
+  ---
+  duration_ms: 0.236924
+  type: 'test'
+  ...
+# Subtest: volatility20d: requireContinuousWindow=false 无基准也直接计算
+ok 44 - volatility20d: requireContinuousWindow=false 无基准也直接计算
+  ---
+  duration_ms: 0.235482
+  type: 'test'
+  ...
+# Subtest: volatility20d: 短历史(不足21个有效时点) → unknown 而非 0
+ok 45 - volatility20d: 短历史(不足21个有效时点) → unknown 而非 0
+  ---
+  duration_ms: 0.126879
+  type: 'test'
+  ...
+# Subtest: volatility20d: 乱序输入 → 按日期排序后计算
+ok 46 - volatility20d: 乱序输入 → 按日期排序后计算
+  ---
+  duration_ms: 0.149433
+  type: 'test'
+  ...
+# Subtest: volatility20d: 国庆长假休市 基准与个股同时缺 应判连续
+ok 47 - volatility20d: 国庆长假休市 基准与个股同时缺 应判连续
+  ---
+  duration_ms: 0.152869
+  type: 'test'
+  ...
+1..47
+# tests 47
+# suites 0
+# pass 47
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1839.843822
+EXIT_CODE=0
